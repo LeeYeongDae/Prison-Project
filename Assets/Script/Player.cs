@@ -5,9 +5,9 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public float speed;
-    float p_status = 1f;
-    bool isRun;
-    bool isSlow;
+    float p_status;
+    public bool isRun;
+    public bool isSlow;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,17 +20,30 @@ public class Player : MonoBehaviour
         if (isRun)
         {
             if (isSlow)
-                p_status = 0.75f;
+                p_status = 1.15f;
             else p_status = 1.5f;
         }
         else
         {
             if (isSlow)
-                p_status = 0.5f;
+                p_status = 0.75f;
             else p_status = 1f;
         }
+        StateCheck();
         PlayerHMove();
         PlayerVMove();
+    }
+
+    void StateCheck()
+    {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            isRun = true;
+        }
+        else
+        {
+            isRun = false;
+        }
     }
 
     void PlayerHMove()
