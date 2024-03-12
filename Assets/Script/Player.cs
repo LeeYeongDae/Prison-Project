@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     float p_status;
     public bool isRun;
     public bool isSlow;
+    public bool isInteracting;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,12 +30,13 @@ public class Player : MonoBehaviour
                 p_status = 0.75f;
             else p_status = 1f;
         }
-        StateCheck();
+        Interact_StateCheck();
+        Run_StateCheck();
         PlayerHMove();
         PlayerVMove();
     }
 
-    void StateCheck()
+    void Run_StateCheck()
     {
         if (Input.GetKey(KeyCode.LeftShift))
         {
@@ -43,6 +45,18 @@ public class Player : MonoBehaviour
         else
         {
             isRun = false;
+        }
+    }
+
+    void Interact_StateCheck()
+    {
+        if(Input.GetKey(KeyCode.E))
+        {
+            isInteracting = true;
+        }
+        else
+        {
+            isInteracting = false;
         }
     }
 
