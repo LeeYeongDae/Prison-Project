@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     public bool isRun;
     public bool isSlow;
     public bool isInteracting;
+    public bool PressIBt;
+    float PressTime = 0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -50,14 +52,18 @@ public class Player : MonoBehaviour
 
     void Interact_StateCheck()
     {
-        if(Input.GetKey(KeyCode.E))
+        if(Input.GetKey(KeyCode.E) || PressIBt)
         {
             isInteracting = true;
+            PressTime += Time.deltaTime;
         }
         else
         {
             isInteracting = false;
         }
+
+        if (PressTime > 0.1f)
+            PressIBt = false;
     }
 
     void PlayerHMove()
@@ -87,5 +93,9 @@ public class Player : MonoBehaviour
             moveVelocity = Vector3.up;
         }
         transform.position += moveVelocity * speed * p_status * Time.deltaTime;
+    }
+    public void DoInteraction()
+    {
+        PressIBt = true;
     }
 }
