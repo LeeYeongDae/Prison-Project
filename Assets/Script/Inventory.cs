@@ -11,6 +11,7 @@ public class Inventory : MonoBehaviour
     private Transform slotParent;
     [SerializeField]
     private Slot[] slots;
+    public bool invenFull;
 
 #if UNITY_EDITOR
     private void OnValidate()       //Bag 넣으면 slot 자동 등록
@@ -22,6 +23,14 @@ public class Inventory : MonoBehaviour
     void Awake()
     {
         FreshSlot();                //시작 시 items의 아이템 인벤토리 넣기
+    }
+
+    void Update()
+    {
+        if (items.Count >= slots.Length)
+            invenFull = true;
+        else
+            invenFull &= !invenFull;
     }
 
     public void FreshSlot()
@@ -41,6 +50,8 @@ public class Inventory : MonoBehaviour
             FreshSlot();
         }
         else
+        {
             print("슬롯이 가득 찼습니다.");
+        } 
     }
 }

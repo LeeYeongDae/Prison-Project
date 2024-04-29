@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Spoon
   m_EditorClassIdentifier: 
   itemName: Spoon
-  itemImage: {fileID: 0}
+  itemImage: {fileID: 21300000, guid: 3fff347a71aec23458e029972ee3bda3, type: 3}

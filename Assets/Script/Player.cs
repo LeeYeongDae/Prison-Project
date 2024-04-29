@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (isRun)
         {
@@ -62,7 +62,7 @@ public class Player : MonoBehaviour
             isInteracting = false;
         }
 
-        if (PressTime > 0.1f)
+        if (PressTime > 0.2f)
             PressIBt = false;
     }
 

@@ -2,7 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Interaction : MonoBehaviour
+public interface IObjectItem
+{
+    Item Obitem();
+}
+
+public class Interaction : MonoBehaviour, IObjectItem
 {
     Inventory inven;
     Player player;
@@ -23,7 +28,8 @@ public class Interaction : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player" && player.isInteracting)
         {
-            this.ObtainItem(obtem);
+            if (!inven.invenFull)
+                this.ObtainItem(obtem);
         }
     }
 
@@ -33,4 +39,8 @@ public class Interaction : MonoBehaviour
         this.gameObject.SetActive(false);   //Arrest 되기 전까지 재획득 불가능
     }
 
+    public Item Obitem()
+    {
+        return this.obtem;
+    }
 }
