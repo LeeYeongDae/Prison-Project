@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     public bool isSlow;
     public bool isInteracting;
     public bool PressIBt;
+    public int warnMode;    //0 = Safe, 1 = Suspect, 2 = Warn
+    public float suspectLevel;
     float PressTime = 0f;
     // Start is called before the first frame update
     void Start()

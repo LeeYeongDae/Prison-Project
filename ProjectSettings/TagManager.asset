@@ -6,17 +6,18 @@ TagManager:
   tags:
   - Item
   - Door
+  - Path
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
+  - Wall
   - 
   - 
-  - 
-  - 
+  - Path
   - 
   - 
   - 
