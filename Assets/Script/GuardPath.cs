@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 
 public class GuardPath : MonoBehaviour
 {
     [SerializeField]
     public GameObject[] pathPoints;
-
+    public List<Pin> Roote;
+    public Pin CurPin;
     public int pathCount;
 
     public Vector2Int bottomLeft, topRight;
@@ -63,21 +65,34 @@ public class GuardPath : MonoBehaviour
                 else
                 {
                     destinum = Random.Range(0, 16); //path 중 한 곳 선정
+                    
                 }
             }
             else if (dutytime == 1)
             {
-                destinum = 22 | 23; //종료시간까지 홀딩, 업무 미완료 시 검문모드
+                destinum = 22 | 24; //종료시간까지 홀딩, 업무 미완료 시 검문모드
             }
             else if (dutytime == 2)
             {
-                destinum = 24 | 25; //종료시간까지 홀딩, 순찰모드
+                destinum = 25 | 26; //종료시간까지 홀딩, 순찰모드
             }
 
             Destination = pathPoints[destinum];
             destiPos = Destination.transform.position;
+            //Roote.Add(Destination);
+            //while(Roote.Contains(pathPoints[destinum]))
+            //{
 
-            targetPos = destiPos;
+            //} 
+            if (destiPos.x == startPos.x || destiPos.y == startPos.y)
+            {
+                if (destiPos.y == 51f)
+                {
+                    destiPos.x = startPos.x; destiPos.y = 4f;
+                }
+                targetPos = destiPos;
+            }
+            else if (dutytime != 0) targetPos = destiPos;
         }
 
         PathFinding();
@@ -134,6 +149,31 @@ public class GuardPath : MonoBehaviour
         ClosedList = new List<Node>();
         FinalNodeList = new List<Node>();
 
+        //for ()
+
+        //    StartPin = this.gameObject.transform.position;
+
+        //while (OpenList.Count > 0)
+        //{
+        //    CurPin = OpenList[0];
+        //    for (int i = 1; i < OpenList.Count; i++)
+        //    { if (OpenList[i].DistanceX <= CurPin.DistanceX && OpenList[i].DistanceY <= CurPin.DistanceY) CurPin = OpenList[i]; }
+        //    if (CurPin == TargetPin)
+        //    {
+        //        Pin TargetCurPin = TargetPin;
+        //        while (TargetCurPin != StartPin)
+        //        {
+        //            Roote.Add(TargetCurPin);
+        //            TargetCurPin = TargetCurPin.Neighbor;
+        //        }
+        //        Roote.Add(StartPin);
+        //        Roote.Reverse();
+
+        //        return;
+        //    }
+
+        //    FindNearNeighbor(CurPin);
+        //}
 
         while (OpenList.Count > 0)
         {
@@ -162,6 +202,7 @@ public class GuardPath : MonoBehaviour
                 return;
             }
 
+            
 
             // ↑ → ↓ ←
             OpenListAdd(CurNode.x, CurNode.y + 1);
@@ -170,6 +211,12 @@ public class GuardPath : MonoBehaviour
             OpenListAdd(CurNode.x - 1, CurNode.y);
         }
     }
+
+    //void FindNearNeighbor(Pin pin)
+    //{
+    //    Pin NeighborPin = 
+    //    if(pin.x == )
+    //}
 
     void OpenListAdd(int checkX, int checkY)
     {

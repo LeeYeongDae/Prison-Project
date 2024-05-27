@@ -38,20 +38,26 @@ public class Room_Setting : MonoBehaviour
                     Instantiate(roomtype[i], new Vector3(0f, -60f, 0f), Quaternion.Euler(0f, 0f, 0f)).transform.parent = this.gameObject.transform;
                     break;
                 case 3:
-                    Instantiate(roomtype[i], new Vector3(22f, -94f, 0f), Quaternion.Euler(0f, 0f, -90f)).transform.parent = this.gameObject.transform;
+                    Instantiate(roomtype[i], new Vector3(148f, 10f, 0f), Quaternion.Euler(0f, 0f, 0f)).transform.parent = this.gameObject.transform;
                     break;
                 case 4:
-                    Instantiate(roomtype[i], new Vector3(-16f, -16f, 0f), Quaternion.Euler(0f, 0f, 90f)).transform.parent = this.gameObject.transform;
+                    Instantiate(roomtype[i], new Vector3(148f, -20f, 0f), Quaternion.Euler(0f, 0f, 0f)).transform.parent = this.gameObject.transform;
                     break;
                 case 5:
-                    Instantiate(roomtype[i], new Vector3(44f, -28f, 0f), Quaternion.Euler(0f, 0f, 180f)).transform.parent = this.gameObject.transform;
+                    Instantiate(roomtype[i], new Vector3(148f, -50f, 0f), Quaternion.Euler(0f, 0f, 0f)).transform.parent = this.gameObject.transform;
                     break;
                 case 6:
-                    Instantiate(roomtype[i], new Vector3(44f, -54f, 0f), Quaternion.Euler(0f, 0f, 180f)).transform.parent = this.gameObject.transform;
-                    break;
+                    if (i == 0)
+                        Instantiate(roomtype[i], new Vector3(52f, -24f, 0f), Quaternion.Euler(0f, 0f, 0f)).transform.parent = this.gameObject.transform;
+                    else
+                        Instantiate(roomtype[i+7], new Vector3(52f, -24f, 0f), Quaternion.Euler(0f, 0f, 0f)).transform.parent = this.gameObject.transform;
+                    break; 
                 case 7:
-                    Instantiate(roomtype[i], new Vector3(44f, -84f, 0f), Quaternion.Euler(0f, 0f, 180f)).transform.parent = this.gameObject.transform;
-                    break;
+                    if (i == 0)
+                        Instantiate(roomtype[i], new Vector3(52f, -50f, 0f), Quaternion.Euler(0f, 0f, 0f)).transform.parent = this.gameObject.transform;
+                    else
+                        Instantiate(roomtype[i+7], new Vector3(52f, -50f, 0f), Quaternion.Euler(0f, 0f, 0f)).transform.parent = this.gameObject.transform;
+                    break; 
                 default:
                     break;
             }

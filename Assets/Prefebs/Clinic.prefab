@@ -31,7 +31,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1839735485 &3078793427778482928
 Tilemap:
   m_ObjectHideFlags: 0
@@ -41,7 +41,7 @@ Tilemap:
   m_GameObject: {fileID: 3078793427778482943}
   m_Enabled: 1
   m_Tiles:
-  - first: {x: -30, y: -13, z: 0}
+  - first: {x: -30, y: -12, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 1
@@ -51,7 +51,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: -29, y: -13, z: 0}
+  - first: {x: -29, y: -12, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 2
@@ -61,7 +61,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: -30, y: -10, z: 0}
+  - first: {x: -30, y: -9, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 1
@@ -71,7 +71,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: -29, y: -10, z: 0}
+  - first: {x: -29, y: -9, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 2
@@ -81,7 +81,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: -30, y: -7, z: 0}
+  - first: {x: -30, y: -6, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 1
@@ -91,7 +91,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: -29, y: -7, z: 0}
+  - first: {x: -29, y: -6, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 2
@@ -151,8 +151,8 @@ Tilemap:
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Origin: {x: -30, y: -13, z: 0}
-  m_Size: {x: 30, y: 13, z: 1}
+  m_Origin: {x: -31, y: -15, z: 0}
+  m_Size: {x: 31, y: 15, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
