@@ -11,6 +11,15 @@ public class GameManager : MonoBehaviour
     public Text DutyTxT;
     public Text TimeTxT;
 
+    public int GuardOnDuty;
+
+    public bool isClear;
+    public bool isOver;
+
+    public int LifeCount;
+
+
+
     float inTime = 0, min = 0;
     int hour;
     bool pm;

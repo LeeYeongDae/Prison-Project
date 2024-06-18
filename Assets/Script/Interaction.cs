@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public interface IObjectItem
 {
@@ -11,6 +12,8 @@ public class Interaction : MonoBehaviour, IObjectItem
 {
     Inventory inven;
     Player player;
+    private bool interacting;
+    public Slider workGage;
     [SerializeField]
     public Item obtem;
 
@@ -24,12 +27,35 @@ public class Interaction : MonoBehaviour, IObjectItem
         player = GameObject.Find("Player").GetComponent<Player>();
     }
 
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+            if (this.gameObject.tag == "Item")
+                workGage.gameObject.SetActive(true);
+    }
+
     void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player" && player.isInteracting)
+        if (collision.gameObject.tag == "Player")
         {
-            if (!inven.invenFull)
-                this.ObtainItem(obtem);
+            if (this.gameObject.tag == "Item" && player.isInteracting)
+            {
+                workGage.value += Time.deltaTime;
+                if (!inven.invenFull && workGage.value == workGage.maxValue)
+                    this.ObtainItem(obtem);
+            }
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            if (this.gameObject.tag == "Item")
+            {
+                workGage.gameObject.SetActive(false);
+                workGage.value = 0;
+            }
         }
     }
 

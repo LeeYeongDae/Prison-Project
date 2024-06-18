@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    EventManager eventManager;
+
     public float speed;
     float p_status;
     public bool isRun;
     public bool isSlow;
     public bool isInteracting;
     public bool PressIBt;
-    public int warnMode;    //0 = Safe, 1 = Suspect, 2 = Warn
+    public int warnMode;    //아이템 의심레벨 합계
     public float suspectLevel;
-    float PressTime = 0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +23,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        eventManager = GameObject.Find("EventManager").GetComponent<EventManager>();
+        PressIBt = eventManager.GetpressedInter();
         if (isRun)
         {
             if (isSlow)
@@ -57,15 +60,11 @@ public class Player : MonoBehaviour
         if(Input.GetKey(KeyCode.E) || PressIBt)
         {
             isInteracting = true;
-            PressTime += Time.deltaTime;
         }
         else
         {
             isInteracting = false;
         }
-
-        if (PressTime > 0.2f)
-            PressIBt = false;
     }
 
     void PlayerHMove()
@@ -98,6 +97,6 @@ public class Player : MonoBehaviour
     }
     public void DoInteraction()
     {
-        PressIBt = true;
+        //PressIBt = eventManager.Getpressed();
     }
 }

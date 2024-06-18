@@ -3,11 +3,44 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Pin
+public class PathPin : MonoBehaviour
 {
-    public Pin(int _x, int _y) {x = _x; y = _y; }
+    [SerializeField]
+    public GameObject[] NearPins;
+    GameObject[] guards;
+    GameObject[] pathPoints;
+    int pathCount;
+    GameObject NextPin;
 
-    public Pin Neighbor;
+    private bool inshower;
 
-    public int x, y;
+    private void Start()
+    {
+        guards = GameObject.FindGameObjectsWithTag("NPC");
+        pathPoints = GameObject.FindGameObjectsWithTag("Path");
+        pathCount = GameObject.Find("Path").transform.childCount;
+    }
+
+    private void Update()
+    {
+        
+        NextPin = NearPins[Random.Range(0, NearPins.Length)];
+        
+        if (this.gameObject.transform == pathPoints[16].transform && inshower)
+        {
+            NextPin = NearPins[0];
+            inshower = false;
+        }
+        else if (this.gameObject.transform == pathPoints[16].transform && !inshower)
+        {
+            NextPin = NearPins[Random.Range(1, NearPins.Length)];
+            inshower = !inshower;
+        }
+
+    }
+
+    public GameObject GetNextPin()
+    {
+        return this.NextPin;
+    }
 }

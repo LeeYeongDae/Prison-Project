@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Inventory : MonoBehaviour
 {
@@ -53,5 +54,12 @@ public class Inventory : MonoBehaviour
         {
             print("ΩΩ∑‘¿Ã ∞°µÊ √°Ω¿¥œ¥Ÿ.");
         } 
+    }
+
+    public void OpenHand()
+    {
+        GameObject SelectItem = EventSystem.current.currentSelectedGameObject;
+        GameObject Handy = GameObject.FindWithTag("Handy").gameObject;
+        Handy.SetActive(true);
     }
 }

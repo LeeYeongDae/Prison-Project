@@ -7,6 +7,10 @@ TagManager:
   - Item
   - Door
   - Path
+  - NPC
+  - LBt
+  - RBt
+  - Handy
   layers:
   - Default
   - TransparentFX

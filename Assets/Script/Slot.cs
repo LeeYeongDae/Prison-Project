@@ -16,11 +16,15 @@ public class Slot : MonoBehaviour
             _item = value;      //item 정보 저장
             if (_item != null )
             {
+                this.gameObject.SetActive(true);
                 image.sprite = item.itemImage;
                 image.color = new Color( 1, 1, 1, 1);
             }
             else
+            {
                 image.color = new Color(1, 1, 1, 0);
+                this.gameObject.SetActive(false);
+            }
         }
     }
 }

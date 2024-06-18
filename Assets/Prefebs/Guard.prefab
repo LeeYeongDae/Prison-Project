@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1414149671664538148}
   m_Layer: 0
   m_Name: Circle
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -92,6 +92,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1414149671714507400}
   - component: {fileID: 1414149671714507401}
+  - component: {fileID: 4340265814099579532}
+  - component: {fileID: 2504542405330997462}
   m_Layer: 0
   m_Name: Guard
   m_TagString: Untagged
@@ -128,6 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pathPoints: []
+  CurPin: {fileID: 0}
   pathCount: 0
   bottomLeft: {x: 0, y: 0}
   topRight: {x: 0, y: 0}
@@ -141,6 +144,43 @@ MonoBehaviour:
   nodeNum: 0
   destinum: 2
   isFixd: 0
+--- !u!50 &4340265814099579532
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414149671714507403}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 0
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &2504542405330997462
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414149671714507403}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &7078080350469042079
 GameObject:
   m_ObjectHideFlags: 0
